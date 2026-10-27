@@ -1,0 +1,755 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta name="theme-color" content="#fce4ec">
+  <title>Happy 16th Birthday, Sayaangg! 🎂💗</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Quicksand:wght@400;500;600;700&family=Caveat:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --pink: #f8c8d8;
+      --pink-soft: #fce4ec;
+      --pink-deep: #ec6f8e;
+      --pink-text: #c2185b;
+      --cream: #fff9f0;
+      --cream-deep: #fff5e6;
+      --white: #ffffff;
+      --brown: #6d4c41;
+      --shadow-soft: 0 8px 24px rgba(233, 30, 99, 0.15);
+      --shadow-strong: 0 15px 40px rgba(233, 30, 99, 0.22);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    html, body {
+      height: 100%;
+      overflow: hidden;
+    }
+
+    body {
+      font-family: 'Quicksand', sans-serif;
+      background:
+        radial-gradient(ellipse at top left, rgba(248, 200, 216, 0.6) 0%, transparent 50%),
+        radial-gradient(ellipse at bottom right, rgba(255, 245, 230, 0.8) 0%, transparent 50%),
+        linear-gradient(135deg, #fce4ec 0%, #fff9f0 50%, #fce4ec 100%);
+      background-attachment: fixed;
+      color: var(--brown);
+      user-select: none;
+      -webkit-user-select: none;
+      position: relative;
+      min-height: 100vh;
+    }
+
+    /* Background floating decorations */
+    .bg-floaters {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 1;
+      overflow: hidden;
+    }
+
+    .bg-floaters span {
+      position: absolute;
+      font-size: 22px;
+      opacity: 0.35;
+      animation: float 7s ease-in-out infinite;
+      will-change: transform;
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0) rotate(0deg); }
+      50% { transform: translateY(-18px) rotate(10deg); }
+    }
+
+    /* Cover Page */
+    .cover {
+      position: fixed;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 100;
+      transition: opacity 0.7s ease, transform 0.7s ease;
+      padding: 20px;
+    }
+
+    .cover.hidden {
+      opacity: 0;
+      transform: scale(0.92);
+      pointer-events: none;
+    }
+
+    .cover-inner {
+      text-align: center;
+      max-width: 90%;
+      position: relative;
+      background: rgba(255, 255, 255, 0.55);
+      backdrop-filter: blur(4px);
+      -webkit-backdrop-filter: blur(4px);
+      padding: 35px 28px 30px;
+      border-radius: 24px;
+      box-shadow: var(--shadow-strong), 0 0 0 2px rgba(255, 255, 255, 0.6) inset;
+    }
+
+    .cover-emoji {
+      font-size: 64px;
+      animation: bounce 2.2s ease-in-out infinite;
+      line-height: 1;
+    }
+
+    @keyframes bounce {
+      0%, 100% { transform: translateY(0) rotate(-4deg); }
+      50% { transform: translateY(-10px) rotate(4deg); }
+    }
+
+    .cover-title {
+      font-family: 'Pacifico', cursive;
+      font-size: 32px;
+      line-height: 1.25;
+      color: var(--pink-text);
+      margin: 16px 0 8px;
+      text-shadow: 2px 2px 0 rgba(255, 255, 255, 0.85);
+    }
+
+    .title-accent {
+      display: inline-block;
+      color: var(--pink-deep);
+      animation: wiggle 3s ease-in-out infinite;
+    }
+
+    @keyframes wiggle {
+      0%, 100% { transform: rotate(-3deg); }
+      50% { transform: rotate(3deg); }
+    }
+
+    .cover-subtitle {
+      font-family: 'Caveat', cursive;
+      font-size: 22px;
+      color: var(--brown);
+      margin: 8px 0 12px;
+    }
+
+    .cover-decor {
+      font-size: 18px;
+      margin: 12px 0;
+      letter-spacing: 5px;
+    }
+
+    .open-btn {
+      background: linear-gradient(135deg, var(--pink) 0%, var(--pink-deep) 100%);
+      color: white;
+      border: none;
+      padding: 14px 26px;
+      font-size: 15px;
+      font-family: 'Quicksand', sans-serif;
+      font-weight: 600;
+      border-radius: 50px;
+      cursor: pointer;
+      box-shadow: var(--shadow-soft);
+      transition: all 0.3s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin: 16px 0 10px;
+    }
+
+    .open-btn:hover, .open-btn:active {
+      transform: translateY(-2px) scale(1.03);
+      box-shadow: var(--shadow-strong);
+    }
+
+    .open-btn:active {
+      transform: translateY(0) scale(0.98);
+    }
+
+    .btn-emoji {
+      font-size: 18px;
+      animation: bounce 1.5s ease-in-out infinite;
+    }
+
+    .cover-hint {
+      font-family: 'Caveat', cursive;
+      font-size: 17px;
+      color: var(--brown);
+      opacity: 0.65;
+      margin-top: 6px;
+    }
+
+    /* Book Container */
+    .book-container {
+      position: fixed;
+      inset: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 20px 15px;
+      z-index: 50;
+      opacity: 0;
+      transform: scale(0.96);
+      transition: opacity 0.7s ease 0.3s, transform 0.7s ease 0.3s;
+    }
+
+    .book-container.visible {
+      opacity: 1;
+      transform: scale(1);
+    }
+
+    .book {
+      position: relative;
+      width: 100%;
+      max-width: 420px;
+      height: 70vh;
+      max-height: 600px;
+      min-height: 420px;
+      perspective: 2000px;
+      margin: 0 auto;
+      touch-action: pan-y;
+    }
+
+    .page {
+      position: absolute;
+      inset: 0;
+      background-image:
+        radial-gradient(circle at 20% 30%, rgba(255, 200, 220, 0.18) 0%, transparent 50%),
+        radial-gradient(circle at 80% 70%, rgba(255, 240, 220, 0.22) 0%, transparent 50%),
+        linear-gradient(135deg, #ffffff 0%, #fffaf3 100%);
+      border-radius: 16px;
+      box-shadow:
+        0 1px 0 rgba(255, 255, 255, 0.7) inset,
+        0 15px 35px rgba(233, 30, 99, 0.16),
+        0 5px 15px rgba(0, 0, 0, 0.05);
+      padding: 38px 26px 44px;
+      display: none;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      overflow: hidden;
+      transform-origin: left center;
+      transform: rotateY(0deg);
+      transition: transform 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+      -webkit-backface-visibility: hidden;
+      backface-visibility: hidden;
+      will-change: transform;
+    }
+
+    .page.active {
+      display: flex;
+      z-index: 10;
+    }
+
+    .page.underneath {
+      display: flex;
+      z-index: 5;
+    }
+
+    .page.flipping-next {
+      transform: rotateY(-180deg);
+      z-index: 20;
+    }
+
+    .page.flipping-prev {
+      transform-origin: right center;
+      transform: rotateY(180deg);
+      z-index: 20;
+    }
+
+    /* Page decorations */
+    .page-decor {
+      position: absolute;
+      font-size: 18px;
+      opacity: 0.55;
+      pointer-events: none;
+    }
+
+    .page-decor.tl { top: 10px; left: 12px; }
+    .page-decor.tr { top: 10px; right: 12px; }
+    .page-decor.bl { bottom: 38px; left: 12px; }
+    .page-decor.br { bottom: 38px; right: 12px; }
+
+    .page-content {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+      overflow-y: auto;
+      -webkit-overflow-scrolling: touch;
+      padding: 4px 2px;
+      scrollbar-width: thin;
+    }
+
+    .page-content::-webkit-scrollbar {
+      width: 4px;
+    }
+
+    .page-content::-webkit-scrollbar-thumb {
+      background: var(--pink);
+      border-radius: 4px;
+    }
+
+    .paragraph {
+      font-size: 14px;
+      line-height: 1.7;
+      color: var(--brown);
+      font-weight: 400;
+      max-width: 100%;
+      word-wrap: break-word;
+      overflow-wrap: break-word;
+      padding: 0 4px;
+    }
+
+    .page-number {
+      position: absolute;
+      bottom: 14px;
+      left: 50%;
+      transform: translateX(-50%);
+      font-family: 'Caveat', cursive;
+      font-size: 15px;
+      color: var(--pink-deep);
+      opacity: 0.75;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    /* Last page special styling */
+    .closing-message {
+      margin-top: 18px;
+      padding-top: 16px;
+      border-top: 1px dashed var(--pink);
+      width: 100%;
+      text-align: center;
+    }
+
+    .closing-message p {
+      font-family: 'Pacifico', cursive;
+      font-size: 15px;
+      color: var(--pink-text);
+      line-height: 1.5;
+      margin: 8px 0;
+    }
+
+    .hearts-row {
+      font-size: 15px;
+      letter-spacing: 4px;
+      margin: 6px 0;
+      animation: pulse 2s ease-in-out infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); opacity: 0.75; }
+      50% { transform: scale(1.12); opacity: 1; }
+    }
+
+    /* Book controls */
+    .book-controls {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      margin-top: 22px;
+    }
+
+    .nav-btn {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      border: 2px solid var(--pink);
+      background: white;
+      color: var(--pink-text);
+      font-size: 24px;
+      font-weight: 600;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: var(--shadow-soft);
+      transition: all 0.2s ease;
+      font-family: 'Quicksand', sans-serif;
+      line-height: 1;
+      padding: 0;
+    }
+
+    .nav-btn:hover:not(:disabled) {
+      background: var(--pink-soft);
+      transform: scale(1.05);
+    }
+
+    .nav-btn:active:not(:disabled) {
+      transform: scale(0.95);
+    }
+
+    .nav-btn:disabled {
+      opacity: 0.3;
+      cursor: not-allowed;
+    }
+
+    .indicator {
+      font-family: 'Caveat', cursive;
+      font-size: 22px;
+      color: var(--pink-text);
+      min-width: 90px;
+      text-align: center;
+    }
+
+    .swipe-hint {
+      font-family: 'Caveat', cursive;
+      font-size: 15px;
+      color: var(--brown);
+      opacity: 0.6;
+      margin-top: 12px;
+      text-align: center;
+    }
+
+    /* Mobile-specific tweaks */
+    @media (max-width: 380px) {
+      .cover-emoji { font-size: 54px; }
+      .cover-title { font-size: 27px; }
+      .cover-subtitle { font-size: 19px; }
+      .paragraph { font-size: 13px; line-height: 1.65; }
+      .page { padding: 32px 20px 40px; }
+      .book { height: 72vh; }
+      .nav-btn { width: 40px; height: 40px; font-size: 22px; }
+      .indicator { font-size: 20px; min-width: 80px; }
+    }
+
+    /* Larger screens */
+    @media (min-width: 768px) {
+      .book {
+        max-width: 460px;
+        height: 72vh;
+        max-height: 640px;
+      }
+      .paragraph {
+        font-size: 16px;
+        line-height: 1.8;
+      }
+      .cover-title {
+        font-size: 40px;
+      }
+      .cover-emoji { font-size: 72px; }
+      .cover-inner { padding: 40px 36px 32px; }
+      .page { padding: 44px 34px 48px; }
+    }
+
+    /* Very small height screens */
+    @media (max-height: 600px) {
+      .book { height: 75vh; min-height: 360px; }
+      .cover-inner { padding: 24px 22px 20px; }
+      .cover-emoji { font-size: 48px; }
+      .cover-title { font-size: 26px; margin: 10px 0 6px; }
+      .cover-subtitle { font-size: 18px; margin: 4px 0 8px; }
+      .swipe-hint { display: none; }
+    }
+
+    .hidden-init { display: none !important; }
+  </style>
+</head>
+<body>
+  <!-- Floating background decorations -->
+  <div class="bg-floaters" aria-hidden="true">
+    <span style="top: 10%; left: 5%; animation-delay: 0s;">💗</span>
+    <span style="top: 18%; right: 8%; animation-delay: 1s;">✨</span>
+    <span style="top: 60%; left: 6%; animation-delay: 2s;">🌸</span>
+    <span style="top: 72%; right: 5%; animation-delay: 0.5s;">⭐</span>
+    <span style="top: 42%; left: 3%; animation-delay: 1.5s;">💕</span>
+    <span style="top: 88%; left: 12%; animation-delay: 2.5s;">🎀</span>
+    <span style="top: 14%; left: 50%; animation-delay: 3s;">💗</span>
+    <span style="top: 50%; right: 10%; animation-delay: 1.8s;">✨</span>
+    <span style="top: 30%; left: 14%; animation-delay: 2.2s;">🌟</span>
+    <span style="top: 82%; right: 14%; animation-delay: 0.8s;">💕</span>
+  </div>
+
+  <!-- Cover Page -->
+  <div id="cover" class="cover">
+    <div class="cover-inner">
+      <div class="cover-emoji">🎂</div>
+      <h1 class="cover-title">Happy 16th Birthday,<br><span class="title-accent">Sayaangg!</span> 💗</h1>
+      <p class="cover-subtitle">untuk Isnaeni Azahra 💗</p>
+      <div class="cover-decor">💗 ✨ 🎀 ✨ 💗</div>
+      <button id="open-btn" class="open-btn">
+        <span>Buka hadiah kecilmu</span>
+        <span class="btn-emoji">🎁</span>
+      </button>
+      <p class="cover-hint">klik tombol di atas ya, naei 💕</p>
+    </div>
+  </div>
+
+  <!-- Book -->
+  <div id="book-container" class="book-container hidden-init">
+    <div class="book" id="book" role="region" aria-label="Buku ucapan ulang tahun">
+      <!-- Pages dynamically generated by JavaScript -->
+    </div>
+
+    <div class="book-controls">
+      <button id="prev-btn" class="nav-btn" aria-label="Halaman sebelumnya">‹</button>
+      <div id="indicator" class="indicator" aria-live="polite">1 dari 10</div>
+      <button id="next-btn" class="nav-btn" aria-label="Halaman berikutnya">›</button>
+    </div>
+
+    <p class="swipe-hint">geser halaman 👈👉 atau tap sisi kanan/kiri</p>
+  </div>
+
+  <script>
+    /* ============================================================
+       BAGIAN YANG BISA KAMU UBAH
+       ============================================================ */
+
+    /* --- 1) GANTI teks ucapan di dalam array paragraphs --- *
+       Setiap elemen array = satu halaman buku.
+       Teks di bawah ini sudah aku isi sesuai pesan yang kamu kasih.
+       Kalau mau edit, cukup ubah teks di dalam tanda backtick (` `).
+       Penting: jangan ubah nama variabel 'paragraphs'. */
+    const paragraphs = [
+      `SELAMAAATTT ULAANG TAHUN SAYAANG YANG KE 16, emm harii iniiu adalah hari yanh special, karnaaa hari iniui orang imut lucu gemas cantik bertambah usia YAY. senaang deh bisa kenal kamu sejauh iniu dan bisa sebut kamu sebagai pacar akoou 😛, aku masih sedikit nggaa percaya sih kayak itula yang awalnya niat berteman aja sekarang bisa pacaran. ssemoga di umur yang baruu ini kamu dapat kesenangan selalu dan gak ada alasan untuk kamu sedih sedihh.`,
+
+      `sayang tetap pertahankan diri kamu yang baik ini okeey jadi naei yang lucu karna aku gak mau kehilangan sisi ituu pengen naei yang aku kenal yang bisa aku senyum setiap hari daan tentunya buat aku senang, mungkin menurut kamu itu adalah hal yang biasa atau hal yang kecill tapiuiu buat aku hal kecil itu yang membuat kamu bedaa.`,
+
+      `aku bersyukur di balik semua tingkah kamu yang lucu ituu ku mengenal seseorang yang baik dan tentunya perhatian jugaa, dan ingatin ako untuk hal hal yang baikk daan yang membuat aku sadar kalo di sayang tu bukan cuman dari kata kata manis tapi dari kepedulian yang mungkin keliatan sepele tapiiu punya arti yang besar buat akuu, kamu harus tau kalo kebaikan yang kamu berikan itu gak akan aku sia sia in yah aku emang ga pintar merangkai kata kata yang ada di hati aku tapi aku harap kamu tau apa yang aku maksud HAHAHAHA, aku juga berharap kamu dipertemukan orang orang yang baik.`,
+
+      `kalo di ingat ingat lagi momen pas aku nembak kamu tuu ada rasa bahagia terus tegang perasaan yang selalu tumbuh akhirnya aku bisa ungkapan ke kamu daan kamu bersedia jadi pacar aku. akhirnya aku punya kesempatan hubungan inii sama kamoo jawaban "iya ayo berpacaran" menjadi salah satu momen yang terus aku ingat dan makasih sayang sudah menerima perasaan aku ini mwah.`,
+
+      `sayang di hari ulang tahun mu inii kamu harus tau kaloo kamu gak perlu jadi ceria, ketawa, cerita lucu atau selalu terliat baik baik aja di depan orang lain kalo suatu hari kamu merasa lelah dan sedih atau kenyataan ga sesuai yang kamu pengen kamu harus ingat kamu ga boleh terlalu keras ke diri sendiri kamu harus ke aku biar semua itu akan membaik.`,
+
+      `di umur yang ke 16 tahun inii doa aku ke kamu itu banyak banget aku pengen kamu selalu sehatt tentunya terus di jauhkan dari semua bahaya bahaya di beri hati yang tenang. semoga kamu di beri kebahagiaan dalam hidup kamuu di mudahkan dalam belajar dan mengejar cita cita dan di lancarkan semua urusan yang kamu usahakan semoga semua keinginan yang kamu simpan bisa terkabul satu per satu dan kalo ada satu keinginan yang belum terkabul semoga kamu di beri kesabaran untuk menunggu waktu yang tepat`,
+
+      `hmm tentang hubungan kitaa aku pengen terus menjadi suatu yang baik untuk kita berdua, aku senang sama hubungan kita sekarang dsn ku bersyukur karna sejauh ini kita bisa menjalani hubungan inu dengan baik, aku terus belajar memahami satu sama lain belajar menyampaikan isi hati ku ke kamu dan belajar menghadapi perbedaan tanpa harus saling menyakiti, kita masih sama sama belajar masih bisa melakukan kesalahan dan mungkin ada hal hal yang belum kita pahami dengan sempurna tapi aku pengen kalo suatu hari itu terjadi aku berharap kita saling cerita, mendengarkan dan mencari jalan keluar bersama semoga hubungan kita semakin kuat semakin dipertemukan dengan hal hal yang baik.`,
+
+      `sayaangg, aku juga berharap di umur kamu yang baru iniiu, kamu bisa makin sayang sama diri kamu sendiri. jangan terlalu keras sama diri kamu kalau ada sesuatu yang ggak berjalan sesuai keinginan kamu, kamu gga harus selalu kuat, ga harus selalu ceria, dan ngga harus selalu pura pura baik baik aja di depan ako kalo capek istirahat kaloo sedih ceritaa.`,
+
+      `aku gak bisa membuat kata kata yang baik dan bagus untuk menjelaskan semua yang aku rasakan tappiu aku belajal untuk terus nunjukin rasa sayang aku yang paling tulus dan baik untuk kamuu, semoga di umur yang baru lebuh banyak senyumnya dan lebih banyak pencapaiannya. jangan lupa jaga kesehatan jangan terlalu memaksakan diri sendiri dan tetaplah jadi naei yang lucu dan yang ku kenal.`,
+
+      `happy sweet sixteen sayang i love you so much, sayaanggkuu. selamat bertambah usia, perempuan kesayangan aku 🤍.`,
+    ];
+
+    /* --- 2) Pesan penutup di halaman terakhir --- *
+       Muncul di bawah paragraf terakhir bersama dekorasi hati. */
+    const finalClosing = "That's all, my birthday girl. I love you, sayaangg! 🤍";
+
+    /* ============================================================
+       BAGIAN KODE (sebaiknya tidak diubah kecuali kamu paham)
+       ============================================================ */
+
+    let currentIndex = 0;
+    let isAnimating = false;
+    let totalPages = 0;
+
+    const book = document.getElementById('book');
+    const prevBtn = document.getElementById('prev-btn');
+    const nextBtn = document.getElementById('next-btn');
+    const indicator = document.getElementById('indicator');
+    const openBtn = document.getElementById('open-btn');
+    const cover = document.getElementById('cover');
+    const bookContainer = document.getElementById('book-container');
+
+    // Page decorations (rotated based on page index)
+    const decorPool = ['💗', '✨', '⭐', '🌸', '🎀', '💕', '🌟'];
+
+    function buildPages() {
+      book.innerHTML = '';
+      paragraphs.forEach((text, index) => {
+        const page = document.createElement('div');
+        page.className = 'page';
+        page.dataset.index = index;
+
+        const d1 = decorPool[index % decorPool.length];
+        const d2 = decorPool[(index + 2) % decorPool.length];
+        const d3 = decorPool[(index + 4) % decorPool.length];
+        const d4 = decorPool[(index + 6) % decorPool.length];
+
+        let inner = `
+          <div class="page-decor tl">${d1}</div>
+          <div class="page-decor tr">${d2}</div>
+          <div class="page-decor bl">${d3}</div>
+          <div class="page-decor br">${d4}</div>
+          <div class="page-content">
+            <p class="paragraph">${text}</p>
+        `;
+
+        // Last page: add closing message + hearts decoration
+        if (index === paragraphs.length - 1) {
+          inner += `
+            <div class="closing-message">
+              <div class="hearts-row">🤍💗🤍💗🤍</div>
+              <p>${finalClosing}</p>
+              <div class="hearts-row">💗🤍💗🤍💗</div>
+            </div>
+          `;
+        }
+
+        inner += `
+          </div>
+          <div class="page-number"><span>💗</span> ${index + 1} <span>💗</span></div>
+        `;
+
+        page.innerHTML = inner;
+        book.appendChild(page);
+      });
+
+      totalPages = paragraphs.length;
+
+      // Show first page
+      const firstPage = book.querySelector('.page');
+      if (firstPage) firstPage.classList.add('active');
+
+      updateIndicator();
+      updateNavButtons();
+    }
+
+    function updateIndicator() {
+      indicator.textContent = `${currentIndex + 1} dari ${totalPages}`;
+    }
+
+    function updateNavButtons() {
+      prevBtn.disabled = (currentIndex === 0);
+      nextBtn.disabled = (currentIndex === totalPages - 1);
+    }
+
+    function goToPage(newIndex) {
+      if (isAnimating) return;
+      if (newIndex < 0 || newIndex >= totalPages) return;
+      if (newIndex === currentIndex) return;
+
+      isAnimating = true;
+      const direction = newIndex > currentIndex ? 1 : -1;
+      const current = book.querySelector(`.page[data-index="${currentIndex}"]`);
+      const target = book.querySelector(`.page[data-index="${newIndex}"]`);
+
+      if (!current || !target) {
+        isAnimating = false;
+        return;
+      }
+
+      // Show target page underneath the current one
+      target.classList.add('underneath');
+
+      // Force reflow so the transition triggers
+      void current.offsetWidth;
+
+      // Trigger flip animation
+      if (direction > 0) {
+        current.classList.add('flipping-next');
+      } else {
+        current.classList.add('flipping-prev');
+      }
+
+      // Update nav buttons immediately for snappy feedback
+      currentIndex = newIndex;
+      updateIndicator();
+      updateNavButtons();
+
+      setTimeout(() => {
+        // Cleanup: hide current page, show target as active
+        current.classList.remove('active', 'flipping-next', 'flipping-prev');
+        target.classList.remove('underneath');
+        target.classList.add('active');
+        isAnimating = false;
+      }, 700);
+    }
+
+    function nextPage() {
+      const target = currentIndex + 1;
+      if (target < totalPages) goToPage(target);
+    }
+
+    function prevPage() {
+      const target = currentIndex - 1;
+      if (target >= 0) goToPage(target);
+    }
+
+    // --- Open cover button ---
+    openBtn.addEventListener('click', () => {
+      cover.classList.add('hidden');
+      // Show book container (remove hidden-init, add visible)
+      setTimeout(() => {
+        bookContainer.classList.remove('hidden-init');
+        // small delay then add visible for transition
+        requestAnimationFrame(() => {
+          bookContainer.classList.add('visible');
+        });
+      }, 150);
+    });
+
+    // --- Navigation buttons ---
+    prevBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      prevPage();
+    });
+
+    nextBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      nextPage();
+    });
+
+    // --- Click on book sides to navigate (desktop) ---
+    book.addEventListener('click', (e) => {
+      // Ignore clicks on nav buttons (they have their own handler)
+      if (e.target.closest('.nav-btn')) return;
+
+      const rect = book.getBoundingClientRect();
+      const clickX = e.clientX - rect.left;
+
+      if (clickX < rect.width / 2) {
+        prevPage();
+      } else {
+        nextPage();
+      }
+    });
+
+    // --- Touch swipe (mobile) ---
+    let touchStartX = 0;
+    let touchStartY = 0;
+    let touchStartTime = 0;
+
+    book.addEventListener('touchstart', (e) => {
+      touchStartX = e.changedTouches[0].screenX;
+      touchStartY = e.changedTouches[0].screenY;
+      touchStartTime = Date.now();
+    }, { passive: true });
+
+    book.addEventListener('touchend', (e) => {
+      const touchEndX = e.changedTouches[0].screenX;
+      const touchEndY = e.changedTouches[0].screenY;
+      handleSwipe(touchEndX, touchEndY);
+    }, { passive: true });
+
+    function handleSwipe(endX, endY) {
+      const diffX = touchStartX - endX;
+      const diffY = touchStartY - endY;
+      const elapsed = Date.now() - touchStartTime;
+
+      // Require a clear horizontal swipe
+      if (Math.abs(diffX) < 50) return;
+      if (Math.abs(diffY) > Math.abs(diffX)) return; // vertical scroll
+      if (elapsed > 800) return; // too slow, probably a tap
+
+      if (diffX > 0) {
+        nextPage();
+      } else {
+        prevPage();
+      }
+    }
+
+    // --- Keyboard navigation (desktop) ---
+    document.addEventListener('keydown', (e) => {
+      if (!bookContainer.classList.contains('visible')) return;
+      if (e.key === 'ArrowLeft') prevPage();
+      if (e.key === 'ArrowRight') nextPage();
+    });
+
+    // Initialize the book
+    buildPages();
+  </script>
+</body>
+</html>
